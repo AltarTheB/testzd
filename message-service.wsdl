@@ -1,0 +1,114 @@
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://localhost:8080/soap">
+	
+	<message name="getAllMessagesRequest">
+	</message>
+	<message name="getAllMessagesResponse">
+		<part name="messages" type="xsd:string">
+		</part>
+	</message>
+	<message name="createMessageRequest">
+		<part name="content" type="xsd:string">
+		</part>
+	</message>
+	<message name="createMessageResponse">
+		<part name="message" type="xsd:string">
+		</part>
+	</message>
+	<message name="updateMessageRequest">
+		<part name="id" type="xsd:string">
+		</part>
+		<part name="content" type="xsd:string">
+		</part>
+	</message>
+	<message name="updateMessageResponse">
+		<part name="message" type="xsd:string">
+		</part>
+	</message>
+	<message name="deleteMessageRequest">
+		<part name="id" type="xsd:string">
+		</part>
+	</message>
+	<message name="deleteMessageResponse">
+		<part name="message" type="xsd:string">
+		</part>
+	</message>
+	<portType name="MessagePort">
+		<operation name="getAllMessages">
+			<input message="tns:getAllMessagesRequest">
+			</input>
+			<output message="tns:getAllMessagesResponse">
+			</output>
+		</operation>
+		<operation name="createMessage">
+			<input message="tns:createMessageRequest">
+			</input>
+			<output message="tns:createMessageResponse">
+			</output>
+		</operation>
+		<operation name="updateMessage">
+			<input message="tns:updateMessageRequest">
+			</input>
+			<output message="tns:updateMessageResponse">
+			</output>
+		</operation>
+		<operation name="deleteMessage">
+			<input message="tns:deleteMessageRequest">
+			</input>
+			<output message="tns:deleteMessageResponse">
+			</output>
+		</operation>
+	</portType>
+	<binding name="MessageBinding" type="tns:MessagePort">
+		<binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http" />
+		<operation name="getAllMessages">
+			<operation soapAction="getAllMessages" />
+			<input>
+				<body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:soap">
+				</body>
+			</input>
+			<output>
+				<body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:soap">
+				</body>
+			</output>
+		</operation>
+		<operation name="createMessage">
+			<operation soapAction="createMessage" />
+			<input>
+				<body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:soap">
+				</body>
+			</input>
+			<output>
+				<body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:soap">
+				</body>
+			</output>
+		</operation>
+		<operation name="updateMessage">
+			<operation soapAction="updateMessage" />
+			<input>
+				<body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:soap">
+				</body>
+			</input>
+			<output>
+				<body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:soap">
+				</body>
+			</output>
+		</operation>
+		<operation name="deleteMessage">
+			<operation soapAction="deleteMessage" />
+			<input>
+				<body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:soap">
+				</body>
+			</input>
+			<output>
+				<body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:soap">
+				</body>
+			</output>
+		</operation>
+	</binding>
+	<service name="MessageService">
+		<port name="MessagePort" binding="tns:MessageBinding">
+			<address location="http://localhost:8080/soap">
+			</address>
+		</port>
+	</service>
+</definitions>
